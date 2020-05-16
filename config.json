@@ -1,0 +1,20 @@
+{
+  "params":
+  {
+    "local_server": "True",
+    "local_uri": "mysql://root:@localhost/HelloProgrammers",
+    "prod_uri": "mysql://username:password@localhost/db_name",
+    "fb_url": "https://facebook.com/HelloProgrammers",
+    "tw_url": "https://twitter.com/HelloProgrammers",
+    "gh_url": "https://github.com/HelloProgrammers",
+    "blog_name": "Hello Programmers",
+    "gmail-user": "hello1999@gmail.com",
+    "gmail-password": "password",
+    "about_text": "Hi, my name is sujoy and I am a 2'nd year b-tech student",
+    "no_of_posts": 2,
+    "admin_user": "username",
+    "admin_password": "password",
+    "upload_location": "give your upload location"
+  }
+
+}

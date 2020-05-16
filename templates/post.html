@@ -1,0 +1,45 @@
+{% extends "layout.html" %}<!-- It means, Use layout.html as base -->
+{% block body %}
+
+
+  <!-- Page Header -->   
+
+  <!-- {percent   percent}     we write jinja block like this -->
+   {% set fname = 'img/' + post.img_file %}
+   <!-- here we use set keyword to set the value of variable fname, and here our file will be img and after '/' there will came the file name -->
+
+  <!-- We're doing this because we can't write one url inside another url means we can't write like
+      {{ url_for('static', filename = 'img/post.img_file')}},  that's why we're first storing one url in the variable fname
+      then using the fname inside the another url-->
+  <header class="masthead" style=" background-image: url('  {{ url_for('static', filename=fname ) }}  ')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{post.title}}</h1>
+            <h2 class="subheading">{{ post.tagline }}</h2>
+            <span class="meta">Posted by
+              <a href="#">Admin</a>
+              on {{ post.date }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          
+          {{post.content}}
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+ {% endblock %}

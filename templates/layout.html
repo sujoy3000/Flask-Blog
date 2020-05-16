@@ -1,0 +1,129 @@
+<!--This is Template inheritance
+So, here the idea is, the header and footer is same for all pages, So we will take header and footer 
+ in a seperate layout file, and the other files will contain only the middle things for each page -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>{{paramet['blog_name']}}</title>    <!-- Blog name will be taken from json file -->
+
+  <!-- Bootstrap core CSS -->
+
+  <!-- url_for('static')  it will replace the url of static in the server by this files, so if
+  any problem happen in our working directory or any issue happen it will not affected  -->
+  <link href=" {{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css' ) }} " rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href=" {{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css' ) }} " rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+
+  <!-- Here change -->
+  <link href=" {{ url_for('static', filename='css/clean-blog.min.css' ) }} " rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="/">{{paramet['blog_name']}}</a>    <!-- Blog name will be taken from json file -->
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            
+            <!-- As my end points are /index, /about like that so change it from about.html to /about -->
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Admin Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+<!-- BODY CONTENT HERE -->
+
+{% block body %}{% endblock %}
+
+
+
+
+
+ <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="{{paramet['tw_url']}}" target="_blank">   <!-- Giving twitter url as parameters -->
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="{{paramet['fb_url']}}" target="_blank">   <!-- Giving facebook url as parameters -->
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="{{paramet['gh_url']}}" target="_blank">   <!-- Giving github url as parameters -->
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; {{paramet['blog_name']}}</p>    <!-- Blog name will be taken from json file -->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+
+  <!-- Here change -->
+  <script src=" {{ url_for('static', filename='vendor/jquery/jquery.min.js' ) }} "></script>
+  <script src=" {{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js' ) }}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

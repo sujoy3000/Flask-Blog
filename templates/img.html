@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Title of my page</title>
+</head>
+<body>
+	<!-- <img src="static/Gym.jpg"> -->
+	<!-- url_for('static')  it will replace the url of static in the server by this file, so if
+	any problem happen in our working directory or any issue happen it will not affected  -->
+	<img src="{{ url_for('static', filename='Gym.jpg') }}">
+</body>
+</html>

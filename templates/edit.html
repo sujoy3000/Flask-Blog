@@ -1,0 +1,89 @@
+{% extends "layout.html" %}  <!-- It means, Use layout.html as base -->
+{% block body %}    
+<!--It means, place this whole thing between  block body  and  endblock  inside the layout's   block body  and endblock , And This file will contain the whole thing (layout+index)-->
+
+ <!-- Page Header -->
+
+  <!-- Here change -->
+  <header class="masthead" style="background-image: url('     {{ url_for('static', filename='img/home-bg.jpg' ) }}    ' )">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Admin Panel</h1>       <!-- Blog name will be taken from json file -->
+            <span class="subheading">Manage Your Posts And Change Them</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+  <!-- our table -->
+        <h1>Basic Actions</h1>
+
+        <a href="/login"><button class="btn btn-primary"> Dashboard Home </button></a>
+
+        <a href="/logout"> <button class="btn btn-primary"> Logout </button></a>
+
+        <hr>
+        <h1>Add/Edit Posts</h1>
+        <form name="sentMessage" id="contactForm" action = "/edit/{{sno}}" method="post" novalidate>     <!-- change, adding action and method,  this will sent post request to the /contact end point when user press send, after filling up the form -->
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Title</label>
+              <input type="text" class="form-control" placeholder="Title" id="title" name="title" required   data-validation-required-message="Please enter your name." value="{{post.title}}">   <!-- change, adding name -->
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Tagline</label>
+              <input type="text" class="form-control" placeholder="Tagline" id="tline" name="tline" required data-validation-required-message="Please enter your email address." value="{{post.tagline}}">   <!-- change, adding name, id, placeholder, value -->
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Slug</label>
+              <input type="text" class="form-control" placeholder="Slug" id="slug" name="slug" required data-validation-required-message="Please enter your email address." value="{{post.slug}}">   <!-- change, adding name, id , placeholder, value -->
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Content</label>
+              <textarea rows="5" class="form-control" placeholder="Content" id="content" name="content" required data-validation-required-message="Please enter a message.">{{post.content}}</textarea>   <!-- change, adding name -->
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Image File</label>
+              <input class="form-control" placeholder="Image Filename" id="img_file" name="img_file" value="{{post.img_file}}">   <!-- change, adding name -->
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <br>
+          <div id="success"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+          </div>
+        </form>
+
+        
+      </div>
+    </div>
+  </div>
+
+ {% endblock %}
